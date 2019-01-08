@@ -1,0 +1,323 @@
+# -*-Perl-*-
+
+# purecoverageSystemTests.ntest -
+#
+# ECPureCoverage
+#
+# Copyright (c) 2005-2010 Electric Cloud, Inc.
+# All rights reserved
+
+use strict;
+use warnings;
+use ECTest;
+use ECSelenium;
+
+ 
+# system tests
+
+
+require "$::gTestFileDir/purecoverage-common.ntest";
+
+$::gProjectImported = 0;
+$::gtestProjectName = 'PureCoverageTestProject';
+
+my $outcome = '';
+
+########################################################################
+# importProject - imports the test project and asserts that the specified
+#                 procedures exists
+#
+# Arguments:
+#   -none
+#
+# Returns:
+#   -nothing
+#
+########################################################################
+sub importProject() {
+ 
+    #assert project exists and is imported
+    assertOK($::N->import(
+             { file =>"$::gTestFileDir/pureCoverageSystemTests.xml",
+               path  => "/projects/PureCoverageTestProject",
+               force => 1
+             } ), 'import runCommandLine');
+   
+   #assert all given procedures exist
+   
+    assertOK($::N->getProcedure($::gtestProjectName, 'executePureCoverageForJavaItem'),
+    'executePureCoverageForJavaItem procedure doesn\'t exist');
+    
+    assertOK($::N->getProcedure($::gtestProjectName, 'executePureCoverageWithAllOptions'),
+    'executePureCoverageWithAllOptions procedure doesn\'t exist');
+    
+    assertOK($::N->getProcedure($::gtestProjectName, 'executePureCoverageWithDotNetItem'),
+    'executePureCoverageWithDotNetItem procedure doesn\'t exist'); 
+
+    assertOK($::N->getProcedure($::gtestProjectName, 'executePureCoverageWithRequiredOptions'),
+    'executePureCoverageWithRequiredOptions procedure doesn\'t exist'); 
+    
+    assertOK($::N->getProcedure($::gtestProjectName, 'executePureCoverageWithResultFile'),
+    'executePureCoverageWithResultFile procedure doesn\'t exist');     
+    
+    $::gProjectImported = 1;
+}
+
+########################################################################
+# doSetup - invokes the project import method in case it hasn't been 
+#           executed
+#
+# Arguments:
+#   -none
+#
+# Returns:
+#   -nothing
+#
+########################################################################
+sub doSetup() {
+
+    if(! $::gProjectImported) {
+        importProject();
+    }
+    
+    
+}
+
+ntest "executePureCoverageForJavaItem", {}, sub {
+      
+      doSetup();
+      
+      # run test job
+     
+      my $xpath = $::N->runProcedure($::gtestProjectName, 
+              {procedureName => "executePureCoverageForJavaItem",
+              pollInterval  => '1',
+              timeout => 600,
+                   actualParameter => [
+                  
+                  ]
+      });
+          
+       
+      # make sure it finished
+      my $jobId = 0;
+      my $status = '';
+      
+      assertOK($xpath, 'runProcedure has errors');
+      if ($xpath) {
+          $jobId  = $xpath->findvalue("//jobId");
+          $status = $xpath->findvalue("//status");
+          $outcome = $xpath->findvalue("//outcome");
+  
+          assertTrue($jobId && $jobId ne "",'valid job id');
+          assertEq('completed',$status,"job $jobId complete");
+  
+          #abort if job did not finish
+          if ($status ne 'completed') {
+              assertOK($::N->abortJob($jobId, {force => 1}));
+          }
+      }
+
+      # get the job details
+      $xpath = $::N->getJobDetails($jobId);
+   
+      # get the value of the commands lines
+      my $commandLine = $xpath->findvalue("//property[propertyName='commandLine']/value");
+      my $workingDir = $xpath->findvalue("//property[propertyName='workingdir']/value");
+
+      assertEq($commandLine, 'Coverage /AutoMergeData=no /java java -jar myJar.jar', 
+           'command line doesn\'t match expected output');
+           
+      assertEq($workingDir, '', 'working directory doesn\'t match expected output');
+
+  };
+  
+ntest "executePureCoverageWithAllOptions", {}, sub {
+      
+      doSetup();
+      
+      # run test job
+     
+      my $xpath = $::N->runProcedure($::gtestProjectName, 
+              {procedureName => "executePureCoverageWithAllOptions",
+              pollInterval  => '1',
+              timeout => 600,
+                   actualParameter => [
+                  
+                  ]
+      });
+          
+       
+      # make sure it finished
+      my $jobId = 0;
+      my $status = '';
+      
+      assertOK($xpath, 'runProcedure has errors');
+      if ($xpath) {
+          $jobId  = $xpath->findvalue("//jobId");
+          $status = $xpath->findvalue("//status");
+          $outcome = $xpath->findvalue("//outcome");
+  
+          assertTrue($jobId && $jobId ne "",'valid job id');
+          assertEq('completed',$status,"job $jobId complete");
+  
+          #abort if job did not finish
+          if ($status ne 'completed') {
+              assertOK($::N->abortJob($jobId, {force => 1}));
+          }
+      }
+
+      # get the job details
+      $xpath = $::N->getJobDetails($jobId);
+   
+      # get the value of the commands lines
+      my $commandLine = $xpath->findvalue("//property[propertyName='commandLine']/value");
+
+      my $workingDir = $xpath->findvalue("//property[propertyName='workingdir']/value");
+
+      assertEq($workingDir, 'e:/', 
+           'working directory doesn\'t match expected output');
+
+      assertEq('Coverage /ActiveMerge=yes /AutoMergeData=yes /SaveMergeData /SaveData=result.cfy /SourcePath="e:/" "hello.exe"', $commandLine, 
+           ' command line doesn\'t match expected output');
+
+  };
+  
+  ntest "executePureCoverageWithDotNetItem", {}, sub {
+      
+      doSetup();
+      
+      # run test job
+     
+      my $xpath = $::N->runProcedure($::gtestProjectName, 
+              {procedureName => "executePureCoverageWithDotNetItem",
+              pollInterval  => '1',
+              timeout => 600,
+                   actualParameter => [
+                  
+                  ]
+      });
+          
+       
+      # make sure it finished
+      my $jobId = 0;
+      my $status = '';
+      
+      assertOK($xpath, 'runProcedure has errors');
+      if ($xpath) {
+          $jobId  = $xpath->findvalue("//jobId");
+          $status = $xpath->findvalue("//status");
+          $outcome = $xpath->findvalue("//outcome");
+  
+          assertTrue($jobId && $jobId ne "",'valid job id');
+          assertEq('completed',$status,"job $jobId complete");
+  
+          #abort if job did not finish
+          if ($status ne 'completed') {
+              assertOK($::N->abortJob($jobId, {force => 1}));
+          }
+      }
+
+      # get the job details
+      $xpath = $::N->getJobDetails($jobId);
+   
+      # get the value of the command line
+      my $commandLine = $xpath->findvalue("//property[propertyName='commandLine']/value");
+
+      assertEq('Coverage /AutoMergeData=no /net hello.exe', $commandLine, 
+           ' command line doesn\'t match expected output');
+
+  };
+  
+  ntest "executePureCoverageWithRequiredOptions", {}, sub {
+      
+      doSetup();
+      
+      # run test job
+     
+      my $xpath = $::N->runProcedure($::gtestProjectName, 
+              {procedureName => "executePureCoverageWithRequiredOptions",
+              pollInterval  => '1',
+              timeout => 600,
+                   actualParameter => [
+                  
+                  ]
+      });
+          
+       
+      # make sure it finished
+      my $jobId = 0;
+      my $status = '';
+      
+      assertOK($xpath, 'runProcedure has errors');
+      if ($xpath) {
+          $jobId  = $xpath->findvalue("//jobId");
+          $status = $xpath->findvalue("//status");
+          $outcome = $xpath->findvalue("//outcome");
+  
+          assertTrue($jobId && $jobId ne "",'valid job id');
+          assertEq('completed',$status,"job $jobId complete");
+  
+          #abort if job did not finish
+          if ($status ne 'completed') {
+              assertOK($::N->abortJob($jobId, {force => 1}));
+          }
+      }
+
+      # get the job details
+      $xpath = $::N->getJobDetails($jobId);
+   
+      # get the value of the command line
+      my $commandLine = $xpath->findvalue("//property[propertyName='commandLine']/value");
+
+      assertEq('Coverage /AutoMergeData=no "hello.exe"', $commandLine, 
+           ' command line doesn\'t match expected output');
+
+  };
+  
+      ntest "executePureCoverageWithResultFile", {}, sub {
+      
+      doSetup();
+      
+      # run test job
+     
+      my $xpath = $::N->runProcedure($::gtestProjectName, 
+              {procedureName => "executePureCoverageWithResultFile",
+              pollInterval  => '1',
+              timeout => 600,
+                   actualParameter => [
+                  
+                  ]
+      });
+          
+       
+      # make sure it finished
+      my $jobId = 0;
+      my $status = '';
+      
+      assertOK($xpath, 'runProcedure has errors');
+      if ($xpath) {
+          $jobId  = $xpath->findvalue("//jobId");
+          $status = $xpath->findvalue("//status");
+          $outcome = $xpath->findvalue("//outcome");
+  
+          assertTrue($jobId && $jobId ne "",'valid job id');
+          assertEq('completed',$status,"job $jobId complete");
+  
+          #abort if job did not finish
+          if ($status ne 'completed') {
+              assertOK($::N->abortJob($jobId, {force => 1}));
+          }
+      }
+
+      # get the job details
+      $xpath = $::N->getJobDetails($jobId);
+   
+      # get the value of the command line
+      my $commandLine = $xpath->findvalue("//property[propertyName='commandLine']/value");
+
+      assertEq('Coverage /AutoMergeData=no /SaveTextData=myresultfile.txt "mytarget.exe"', $commandLine, 
+           ' command line doesn\'t match expected output');
+
+  };
+

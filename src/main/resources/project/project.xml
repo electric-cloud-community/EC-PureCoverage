@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exportedData version="39" buildLabel="" buildVersion="3.5.0.0">
+  <exportPath>/projects/@PLUGIN_KEY@-@PLUGIN_VERSION@</exportPath>
+  <project>
+    <projectName>@PLUGIN_KEY@-@PLUGIN_VERSION@</projectName>
+    <propertySheet>
+
+      <property>
+        <propertyName>scripts</propertyName>
+        <description></description>
+        <propertySheet>
+          <property>
+            <propertyName>purecoverageDriver</propertyName>
+            <description></description>
+            <expandable>1</expandable>
+            <value></value>
+          </property>
+        </propertySheet>
+      </property>
+      
+      <property>
+        <propertyName>ec_setup</propertyName>
+        <value></value>
+        <expandable>0</expandable>
+      </property>
+      
+      <property>
+        <propertyName>postp_matchers</propertyName>
+        <value></value>
+        <expandable>0</expandable>
+      </property>
+      
+      <property>
+        <propertyName>ec_visibility</propertyName>
+        <description></description>
+        <expandable>1</expandable>
+        <value>pickListOnly</value>
+      </property>        
+      
+	</propertySheet>
+
+    <procedure>
+      <procedureName>runPureCoverage</procedureName>
+      <description>Executes PureCoverage</description>
+      <jobNameTemplate></jobNameTemplate>
+      <resourceName></resourceName>
+      <workspaceName></workspaceName>
+      <projectName>EC-PureCoverage</projectName>
+      <propertySheet>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <propertySheet>
+            <property>
+              <propertyName>parameters</propertyName>
+              
+              <propertySheet>
+              
+              	<property>
+                  <propertyName>workingdir</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                
+                <property>
+                  <propertyName>resultname</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>                
+                
+                <property>
+                  <propertyName>purecovpath</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                
+                <property>
+                  <propertyName>target</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>                
+                
+                <property>
+                  <propertyName>platform</propertyName>
+                  <propertySheet>
+                    
+                    <property>
+                      <propertyName>options</propertyName>
+                      <propertySheet>
+                        <property>
+                          <propertyName>option1</propertyName>
+                          <propertySheet>
+                            <property>
+                              <propertyName>text</propertyName>
+                              <expandable>1</expandable>
+                              <value>Default</value>
+                            </property>
+                            <property>
+                              <propertyName>value</propertyName>
+                              <expandable>1</expandable>
+                              <value>default</value>
+                            </property>
+                          </propertySheet>
+                        </property>
+                        
+                        <property>
+                          <propertyName>option2</propertyName>
+                          
+                          <propertySheet>
+                            
+                            <property>
+                              <propertyName>text</propertyName>                              
+                              <value>Java</value>
+                            </property>
+                            
+                            <property>
+                              <propertyName>value</propertyName>
+                              <owner>admin</owner>
+                              <value>java</value>
+                            </property>
+                            
+                          </propertySheet>
+                        </property>
+                        
+                        <property>
+                          <propertyName>option3</propertyName>
+                          
+                          <propertySheet>
+                            
+                            <property>
+                              <propertyName>text</propertyName>                              
+                              <value>.NET</value>
+                            </property>
+                            
+                            <property>
+                              <propertyName>value</propertyName>
+                              <owner>admin</owner>
+                              <value>net</value>
+                            </property>
+                            
+                          </propertySheet>
+                        </property>                        
+                       
+                       <property>
+                          <propertyName>optionCount</propertyName>
+                          <expandable>1</expandable>
+                          <value>3</value>
+                        </property>
+                        
+                        <property>
+                          <propertyName>type</propertyName>
+                          <expandable>1</expandable>
+                          <value>list</value>
+                        </property> 
+                        
+                        </propertySheet>
+                        </property>
+                    </propertySheet>
+                </property>
+                
+                <property>
+                  <propertyName>additionalcommands</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                
+                <property>
+                  <propertyName>platformparams</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                
+                <property>
+                  <propertyName>sourcepath</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                
+                <property>
+                  <propertyName>resultfile</propertyName>
+                  <propertySheet>
+                    
+                    <property>
+                      <propertyName>options</propertyName>
+                      <propertySheet>
+                        <property>
+                          <propertyName>option1</propertyName>
+                          <propertySheet>
+                            <property>
+                              <propertyName>text</propertyName>
+                              <expandable>1</expandable>
+                              <value>Default</value>
+                            </property>
+                            <property>
+                              <propertyName>value</propertyName>
+                              <expandable>1</expandable>
+                              <value>default</value>
+                            </property>
+                          </propertySheet>
+                        </property>
+                        
+                        <property>
+                          <propertyName>option2</propertyName>
+                          
+                          <propertySheet>
+                            
+                            <property>
+                              <propertyName>text</propertyName>                              
+                              <value>Text</value>
+                            </property>
+                            
+                            <property>
+                              <propertyName>value</propertyName>
+                              <owner>admin</owner>
+                              <value>text</value>
+                            </property>
+                            
+                          </propertySheet>
+                        </property>
+                        
+                        <property>
+                          <propertyName>option3</propertyName>
+                          
+                          <propertySheet>
+                            
+                            <property>
+                              <propertyName>text</propertyName>                              
+                              <value>PureCoverage data file</value>
+                            </property>
+                            
+                            <property>
+                              <propertyName>value</propertyName>
+                              <owner>admin</owner>
+                              <value>cfy</value>
+                            </property>
+                            
+                          </propertySheet>
+                        </property>                        
+                       
+                       <property>
+                          <propertyName>optionCount</propertyName>
+                          <expandable>1</expandable>
+                          <value>3</value>
+                        </property>
+                        
+                        <property>
+                          <propertyName>type</propertyName>
+                          <expandable>1</expandable>
+                          <value>list</value>
+                        </property> 
+                        
+                        </propertySheet>
+                        </property>
+                    </propertySheet>
+                </property>                
+                
+                <property>
+                    
+                  <propertyName>automerge</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>1</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                
+                
+              </propertySheet>
+              
+            </property>
+          </propertySheet>
+        </property>
+		
+		<property>
+			<propertyName>ec_parameterForm</propertyName>
+			<description></description>
+			<expandable>0</expandable>
+			<value></value>
+		</property>
+      </propertySheet>
+      
+	  <formalParameter>
+        <formalParameterName>purecovpath</formalParameterName>
+        <description>Provide the absolute path to the Coverage executable. Default value assumes Coverage.exe is loaded in the system path. This path cannot contain spaces.</description>
+        <defaultValue>Coverage</defaultValue>
+        <required>1</required>
+        <type>entry</type>
+      </formalParameter>
+	  
+	  <formalParameter>
+        <formalParameterName>platform</formalParameterName>
+        <description>Provide the platform on which the target was built. Either a Java program, a .NET framework, or any other platform.</description>
+        <required>1</required>
+        <type>select</type>
+      </formalParameter>
+	  
+	  <formalParameter>
+        <formalParameterName>target</formalParameterName>
+        <description>Provide the absolute path to the element to analyze.</description>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+	  
+	  <formalParameter>
+        <formalParameterName>platformparams</formalParameterName>
+        <description>Provide specific parameters that allow the selected target to be executed. This works as a command-line for the selected platform. For example, if Java is selected, this field must contain a relevant command line to allow the program to be executed (java -jar [target] or something similar).</description>
+        <required>0</required>
+        <type>textarea</type>
+      </formalParameter>
+	  
+	  <formalParameter>
+        <formalParameterName>sourcepath</formalParameterName>
+        <description>Specify the search path to use to locate source files to display in your default editor or in the Purify viewer window.</description>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+	  
+	  <formalParameter>
+        <formalParameterName>automerge</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>If checked, this enables the auto-merge data mode.</description>
+        <required>0</required>
+        <type>checkbox</type>
+      </formalParameter>
+	  
+      <formalParameter>
+        <formalParameterName>resultfile</formalParameterName>
+        <description>Indicate the type of archive the log will be saved as, either plain text or a PureCoverage data file.</description>
+        <required>0</required>
+        <type>select</type>
+      </formalParameter>      
+
+      <formalParameter>
+        <formalParameterName>resultname</formalParameterName>
+        <description>Indicate the filename of the resulting log file.</description>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>       
+      
+      <formalParameter>
+        <formalParameterName>additionalcommands</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>Provide any additional commands to be executed for PureCoverage.</description>
+        <required>0</required>
+        <type>textarea</type>
+      </formalParameter>
+	  
+	   <formalParameter>
+        <formalParameterName>workingdir</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>Provide the desired working directory. Leave blank to use the default workspace.</description>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+      
+      <step>
+        <stepName>createCommandLine</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/projects/$[/plugins/EC-PureCoverage/projectName]/scripts/purecoverageDriver];</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusive>0</exclusive>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor>postp</postProcessor>
+        <releaseExclusive>0</releaseExclusive>
+        <resourceName></resourceName>
+        <retries>0</retries>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <procedureName>runPureCoverage</procedureName>
+        <projectName>EC-PureCoverage</projectName>
+        <propertySheet>
+          <property>
+            <propertyName>ec_customEditorData</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>formType</propertyName>
+                <expandable>1</expandable>
+                <value>command</value>
+              </property>
+            </propertySheet>
+          </property>
+        </propertySheet>
+      </step>
+      
+      <step>
+        <stepName>runCommandLine</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/myCall/commandLine]</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusive>0</exclusive>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor>postp --loadProperty /myProject/postp_matchers</postProcessor>
+        <releaseExclusive>0</releaseExclusive>
+        <resourceName></resourceName>
+        <retries>0</retries>
+        <shell></shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory>$[/myCall/workingdir]</workingDirectory>
+        <workspaceName>default</workspaceName>
+        <procedureName>runPureCoverage</procedureName>
+        <projectName>EC-PureCoverage</projectName>
+        <propertySheet>
+          <property>
+            <propertyName>ec_customEditorData</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>formType</propertyName>
+                <expandable>1</expandable>
+                <value>command</value>
+              </property>
+            </propertySheet>
+          </property>
+        </propertySheet>
+      </step>
+    </procedure>
+  </project>
+</exportedData>

@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="generator" content=
+        "HTML Tidy for Windows (vers 25 March 2009), see www.w3.org" />
+        <meta content="text/html; charset=us-ascii" http-equiv=
+        "content-type" />
+        <title>ElectricFlow Plugin for PureCoverage</title>
+        <link rel="stylesheet" href=
+        "../../plugins/@PLUGIN_KEY@/pluginhelp.css" type="text/css" media=
+        "screen" />
+    </head>
+    <body>
+        <div class="help">
+            <h1 class="pluginname">PureCoverage</h1>
+            <p>Plugin Version @PLUGIN_VERSION@</p>
+            <hr style=
+            "margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;"
+            noshade="noshade" />
+           
+            <p>July 1, 2015</p>		   
+		   
+            <p>Rational PureCoverage collects a detailed
+            set of coverage data for your program and every component it uses. With this data,
+            you can help ensure that the program you test has been tested properly before
+            you release it.</p>
+
+            <h2>PureCoverage Links</h2>
+            <p>More information can be found at:
+                <ul>
+					<li> <a href="http://engineering-software.web.cern.ch/engineering-software/Products/Purify/purify/docs/html/getstarted_pplus/3-purecov.html">Using Rational PureCoverage</a> </li>
+					<li> <a href="ftp://service.boulder.ibm.com/software/rational/docs/documentation/manuals/v2001a/Rational_Development_Tools/Documentation/Rational_PureCoverage/gavpcch2_2.html#testenv">Using PureCoverage power features</a> </li>
+                    <li> <a href="http://www.ing.iac.es/~docs/external/purify/purecov-4_1.pdf">PureCoverage User's Guide</a> </li>
+                </ul>
+            </p>
+           
+            <h2>ElectricFlow Integration to PureCoverage</h2>
+           
+            <p>@PLUGIN_KEY@ plugin calls the PureCoverage tool via command line
+            and passes the user-provided parameters.</p>
+       
+            <p>@PLUGIN_KEY@ plugin allows the proper testing of programms.</p>
+           
+            <p>ElectricFlow itself provides some advantages like
+            parameters checking, easy functionality selection using only check
+            boxes, combo buttons, historical log reports, procedure duration
+            statistics, simple credentials attachment, real time analysis of
+            the log been generated, among others.</p>
+           
+            <h2>Integrated Version</h2>
+            <p>This plugin was developed and tested with PureCoverage version 7.0.1.0.</p>
+           
+            <h1>Plugin Procedures</h1>
+            <p>IMPORTANT: For all parameter descriptions below, required
+            parameters are shown in <span class='required'>bold
+            italics</span>.</p>
+
+        <div id="runPureCoverage"><a name='runPureCoverage' id="runPureCoverage"></a>
+       
+            <h3>runPureCoverage</h3>
+            <p>Run PureCoverage in the system.</p>
+            <table class="grid">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class='required'>Rational PureCoverage executable path</td>
+                        <td>Provide the absolute path to the Coverage executable. Default value assumes Coverage.exe is loaded in the system path. This path cannot contain spaces. (Required)</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>Platform</td>
+                        <td>Provide the platform on which the target was built. Either a Java program, a .NET framework, or any other platform. (Required)</td>
+                    </tr>
+                    <tr>
+                        <td>Target to analyze</td>
+                        <td>Provide the absolute path to the element to analyze.</td>
+                    </tr>
+                    <tr>
+                        <td>Platform-related specific parameters</td>
+                        <td>Provide specific parameters that allow the selected target to be executed. This works as a command-line for the selected platform. For example, if Java is selected, this field must contain a relevant command line to allow the program to be executed (java -jar [target] or something similar).</td>
+                    </tr>
+                    <tr>
+                        <td>Source path</td>
+                        <td>Specify the search path to use to locate source files to display in your default editor or in the Purify viewer window.</td>
+                    </tr>
+                    <tr>
+                        <td>Auto-merge data</td>
+                        <td>If checked, this enables the auto-merge data mode.</td>
+                    </tr>
+                    <tr>
+                        <td>Result file type</td>
+                        <td>Indicate the type of archive the log will be saved as, either plain text or a PureCoverage data file.</td>
+                    </tr>
+                    <tr>
+                        <td>Result filename</td>
+                        <td>Indicate the filename of the resulting log file.</td>
+                    </tr>
+                    <tr>
+                        <td>Additional Commands</td>
+                        <td>Provide any additional commands to be executed for PureCoverage.</td>
+                    </tr>
+                    <tr>
+                        <td>Working directory</td>
+                        <td>Provide the desired working directory. Leave blank to use the default workspace.</td>
+                    </tr>
+                </tbody>
+            </table>
+			<img src="../../plugins/@PLUGIN_KEY@/images/PureCoverage-1.png"
+             alt="form" />
+        </div>
+       
+        <h1>Release Notes</h1>
+		
+		<h2>@PLUGIN_KEY@ 1.0.5</h2>
+		<ul>
+			<li>Renamed ElectricCommander to ElectricFlow.</li>
+		</ul> 
+       
+        <h2>@PLUGIN_KEY@-1.0.4</h2>
+            <ul>
+                 <li>4.1 XML parameters panels ready.</li>
+            </ul>
+		
+		<h2>@PLUGIN_KEY@-1.0.3</h2>
+            <ul>
+                <li>Plugin converted into the new maven format.</li>
+            </ul>
+         
+		<h2>@PLUGIN_KEY@-1.0.2</h2>
+            <ul>
+                <li>4.1 help page format ready.</li>
+            </ul>
+		 
+        <h2>@PLUGIN_KEY@-1.0.1</h2>
+            <ul>
+                <li>Postp support</li>
+                <li>Code improvements</li>
+                <li>Fixed bug (Local Resource)</li>
+                <li>Fixed bug (Save DataFiles)</li>
+            </ul>
+        </div>
+    </body>
+</html>

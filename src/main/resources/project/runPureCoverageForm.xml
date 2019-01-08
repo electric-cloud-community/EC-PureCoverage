@@ -1,0 +1,95 @@
+    <editor>
+    
+        <help>/commander/pages/@PLUGIN_NAME@/@PLUGIN_KEY@_help?s=Administration&amp;ss=Plugins#runPureCoverage</help>
+
+        <formElement>
+            <type>entry</type>
+            <label>Rational PureCoverage executable path:</label>
+            <property>purecovpath</property>
+            <value>Coverage</value>
+            <required>1</required>
+            <documentation>Provide the absolute path to the Coverage executable. Default value assumes Coverage.exe is loaded in the system path. This path cannot contain spaces.</documentation>
+        </formElement>
+		
+		<formElement>
+            <type>select</type>
+            <label>Platform: </label>
+            <property>platform</property>
+            <required>1</required>
+            <documentation>Provide the platform on which the target was built. Either a Java program, a .NET framework, or any other platform.</documentation>
+            <option><name>Default</name><value>default</value></option>
+            <option><name>Java</name><value>java</value></option>
+            <option><name>.NET</name><value>net</value></option>
+        </formElement>
+        
+        <formElement>
+            <type>entry</type>
+            <label>Target to analyze:</label>
+            <property>target</property>
+            <required>0</required>
+            <documentation>Provide the absolute path to the element to analyze.</documentation>
+        </formElement>
+        
+        <formElement>
+            <type>textarea</type>
+            <label>Platform-related specific parameters:</label>
+            <property>platformparams</property>
+            <required>0</required>
+            <documentation>Provide specific parameters that allow the selected target to be executed. This works as a command-line for the selected platform. For example, if Java is selected, this field must contain a relevant command line to allow the program to be executed (java -jar [target] or something similar).</documentation>
+        </formElement>
+        
+        <formElement>
+            <type>entry</type>
+            <label>Source path:</label>
+            <property>sourcepath</property>
+            <required>0</required>
+            <documentation>Specify the search path to use to locate source files to display in your default editor or in the Purify viewer window.</documentation>
+        </formElement>
+        
+        <formElement>
+            <type>checkbox</type>
+            <label>Auto-merge data:</label>
+            <property>automerge</property>
+            <checkedValue>1</checkedValue>
+            <uncheckedValue>0</uncheckedValue>
+            <required>0</required>
+            <documentation>If checked, this enables the auto-merge data mode.</documentation>
+        </formElement>
+        
+        <formElement>
+            <type>select</type>
+            <label>Result file type:</label>
+            <property>resultfile</property>
+            <required>0</required>
+            <documentation>Indicate the type of archive the log will be saved as, either plain text or a PureCoverage data file.</documentation>
+            <option><name>Default</name><value>default</value></option>
+            <option><name>Text</name><value>text</value></option>
+            <option><name>PureCoverage data file</name><value>cfy</value></option>
+        </formElement>
+        
+        <formElement>
+            <type>entry</type>
+            <label>Result filename:</label>
+            <property>resultname</property>
+            <required>0</required>
+            <documentation>Indicate the filename of the resulting log file.</documentation>
+        </formElement>        
+        
+        <formElement>
+            <type>textarea</type>
+            <label>Additional Commands:</label>
+            <property>additionalcommands</property>
+            <required>0</required>
+            <documentation>Provide any additional commands to be executed for PureCoverage.</documentation>
+        </formElement>
+
+         <formElement>
+            <type>entry</type>
+            <label>Working directory:</label>
+            <property>workingdir</property>
+            <required>0</required>
+            <value></value>
+            <documentation>Provide the desired working directory. Leave blank to use the default workspace.</documentation>
+        </formElement>
+
+    </editor>
